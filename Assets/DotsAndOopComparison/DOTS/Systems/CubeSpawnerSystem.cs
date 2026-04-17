@@ -22,9 +22,16 @@ public partial struct CubeSpawnerSystem : ISystem
         {
             Entity newEntity = ecb.Instantiate(spawner.ValueRO.prefab);
 
-            ecb.AddComponent(newEntity, new CubeComponent { moveDirection =
-                Random.CreateFromIndex((uint)(SystemAPI.Time.ElapsedTime / SystemAPI.Time.DeltaTime)).NextFloat3(),
+            float3 moveDirection = math.normalize(Random.CreateFromIndex(
+                (uint)(SystemAPI.Time.ElapsedTime / SystemAPI.Time.DeltaTime)
+            ).NextFloat3Direction());
+
+            ecb.AddComponent(newEntity, new CubeComponent { moveDirection = moveDirection,
                 moveSpeed = 10 });
+
+            // ecb.AddComponent(newEntity, new CubeComponent { moveDirection =
+            //         Random.CreateFromIndex((uint)(SystemAPI.Time.ElapsedTime / SystemAPI.Time.DeltaTime)).NextFloat3(),
+            //     moveSpeed = 10 });
 
             spawner.ValueRW.nextSpawnTime = (float)SystemAPI.Time.ElapsedTime + spawner.ValueRO.spawnRate;
 

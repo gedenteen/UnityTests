@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.gedenteen.custom-play-button": {
+      "version": "https://github.com/gedenteen/unity-custom-play-button.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "bfc9abc15ce58fdab0fad4b6e00609b16fcc62de"
+    },
+    "com.marijnzwemmer.unity-toolbar-extender": {
+      "version": "https://github.com/marijnz/unity-toolbar-extender.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "395236f9a7a057d2362857e5bb4f3f9a808a9627"
+    },
     "com.unity.burst": {
       "version": "1.8.27",
       "depth": 1,
@@ -114,6 +128,15 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.recorder": {
+      "version": "4.0.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {

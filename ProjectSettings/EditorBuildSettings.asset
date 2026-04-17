@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/DotsAndOopComparison/DOTS/EcsSample.unity
+    guid: 142079a4e68b34946bd498143c1f5fa8
+  - enabled: 1
+    path: Assets/DotsAndOopComparison/OOP/OopSample.unity
+    guid: 47273588b0a446a48a21ad919f125944
+  - enabled: 1
+    path: Assets/ClassesAndStructsComparison/ClassesAndStructsComparison.unity
+    guid: f5dea270d0c645a44a2ed3c260b40b13
   m_configObjects: {}
