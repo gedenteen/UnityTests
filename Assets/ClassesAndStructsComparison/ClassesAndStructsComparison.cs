@@ -130,15 +130,15 @@ public class ClassesAndStructsComparison : MonoBehaviour
 
         // ================ CREATION OF LISTS FOR NEXT TESTS ================ //
 
-        List<ClassSample> listClassSamples = new List<ClassSample>(_instancesCount);
-        List<StructSample> listStructSamples = new();
+        ClassSample[] arrayClassSamples = new ClassSample[_instancesCount];
+        StructSample[] arrayStructSamples = new StructSample[_instancesCount];
 
         for (int i = 0; i < _instancesCount; i++)
         {
             ClassSample classSample = new ClassSample(8, 9f, 10, -1, -2);
-            listClassSamples.Add(classSample);
+            arrayClassSamples[i] = classSample;
             StructSample structSample = new StructSample(8, 9f, 10, -1, -2);
-            listStructSamples.Add(structSample);
+            arrayStructSamples[i] = structSample;
         }
 
         // ================ TEST 3 ================ //
@@ -147,7 +147,7 @@ public class ClassesAndStructsComparison : MonoBehaviour
 
         for (int i = 0; i < _instancesCount; i++)
         {
-            DoSomethingWithClass(listClassSamples[i]);
+            DoSomethingWithClass(arrayClassSamples[i]);
         }
 
         _stopwatch.Stop();
@@ -162,7 +162,7 @@ public class ClassesAndStructsComparison : MonoBehaviour
 
         for (int i = 0; i < _instancesCount; i++)
         {
-            DoSomethingWithStruct(listStructSamples[i]);
+            DoSomethingWithStruct(arrayStructSamples[i]);
         }
 
         _stopwatch.Stop();
@@ -177,8 +177,7 @@ public class ClassesAndStructsComparison : MonoBehaviour
 
         for (int i = 0; i < _instancesCount; i++)
         {
-            StructSample structSample = listStructSamples[i];
-            DoSomethingWithStructViaRef(ref structSample);
+            DoSomethingWithStructViaRef(ref arrayStructSamples[i]);
         }
 
         _stopwatch.Stop();
