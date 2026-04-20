@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5278574964994854343, guid: 2f30ef755dbaa0746bbfa8b4ca01f965, type: 3}
-  spawnRate: 0.05
+  spawnRate: 0.02
 --- !u!4 &1004337571
 Transform:
   m_ObjectHideFlags: 0

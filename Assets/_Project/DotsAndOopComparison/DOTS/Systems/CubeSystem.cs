@@ -1,9 +1,7 @@
 using Unity.Entities;
 using Unity.Burst;
-using Unity.Collections;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
 [BurstCompile]
 public partial struct CubeSystem : ISystem
@@ -23,10 +21,6 @@ public partial struct CubeSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        EntityManager entityManager = state.EntityManager;
-
-        NativeArray<Entity> entities = entityManager.GetAllEntities(Allocator.Temp);
-
         _timer += SystemAPI.Time.DeltaTime;
         if (_timer >= _maxTime)
         {
@@ -34,21 +28,33 @@ public partial struct CubeSystem : ISystem
             _timer -= _maxTime;
         }
 
-        foreach (Entity entity in entities)
+        // Вычисляем скорость один раз на главном потоке
+        float currentSpeed = _direction * 200f * SystemAPI.Time.DeltaTime;
+        float deltaTime = SystemAPI.Time.DeltaTime;
+
+        // Job автоматически распараллеливается по всем сущностям с нужными компонентами
+        new MoveCubeJob
         {
-            if (entityManager.HasComponent<CubeComponent>(entity))
-            {
-                CubeComponent cubeComponent = entityManager.GetComponentData<CubeComponent>(entity);
-                LocalTransform localTransform = entityManager.GetComponentData<LocalTransform>(entity);
+            CurrentSpeed = currentSpeed,
+            DeltaTime = deltaTime
+        }.ScheduleParallel(); // <-- параллельное выполнение на worker threads
+    }
+}
 
-                float3 moveDirection = cubeComponent.moveDirection * SystemAPI.Time.DeltaTime * cubeComponent.moveSpeed;
+[BurstCompile]
+public partial struct MoveCubeJob : IJobEntity
+{
+    public float CurrentSpeed;
+    public float DeltaTime;
 
-                localTransform.Position = localTransform.Position + moveDirection;
-                entityManager.SetComponentData<LocalTransform>(entity, localTransform);
-                cubeComponent.moveSpeed = _direction * 100 * SystemAPI.Time.DeltaTime;
+    // ECS автоматически делает query: только сущности с CubeComponent + LocalTransform
+    public void Execute(ref LocalTransform transform, ref CubeComponent cube)
+    {
+        // Обновляем скорость
+        cube.moveSpeed = CurrentSpeed;
 
-                entityManager.SetComponentData<CubeComponent>(entity, cubeComponent);
-            }
-        }
+        // Двигаем сущность
+        float3 moveDirection = cube.moveDirection * DeltaTime * cube.moveSpeed;
+        transform.Position += moveDirection;
     }
 }
