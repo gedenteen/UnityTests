@@ -29,7 +29,7 @@ public partial struct CubeSystem : ISystem
         }
 
         // Вычисляем скорость один раз на главном потоке
-        float currentSpeed = _direction * 300f * SystemAPI.Time.DeltaTime;
+        float currentSpeed = _direction * SystemAPI.Time.DeltaTime * 300f;
         float deltaTime = SystemAPI.Time.DeltaTime;
 
         // Job автоматически распараллеливается по всем сущностям с нужными компонентами

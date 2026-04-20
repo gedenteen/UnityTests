@@ -11,6 +11,9 @@ public class StartSceneController : MonoBehaviour
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = -1;
+
         int scenesCount = SceneManager.sceneCountInBuildSettings;
 
         for (int i = 1; i < scenesCount; i++)
