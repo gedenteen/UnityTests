@@ -27,7 +27,7 @@ public partial struct CubeSpawnerSystem : ISystem
             ).NextFloat3Direction());
 
             ecb.AddComponent(newEntity, new CubeComponent { moveDirection = moveDirection,
-                moveSpeed = 10 });
+                moveSpeed = 0 });
 
             // ecb.AddComponent(newEntity, new CubeComponent { moveDirection =
             //         Random.CreateFromIndex((uint)(SystemAPI.Time.ElapsedTime / SystemAPI.Time.DeltaTime)).NextFloat3(),
