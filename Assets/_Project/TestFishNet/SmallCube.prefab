@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3055579054330512139}
   - component: {fileID: -4844360529638803636}
   - component: {fileID: 1614252837930889544}
+  - component: {fileID: 6630642570966994216}
   m_Layer: 0
   m_Name: SmallCube
   m_TagString: Untagged
@@ -197,3 +198,19 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 3055579054330512139}
   _networkObjectCache: {fileID: 0}
   SecondsBeforeDespawn: 3
+--- !u!114 &6630642570966994216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339580164869529880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caedc78b69b5a6b4c942692be3c817cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 3055579054330512139}
+  _networkObjectCache: {fileID: 0}
+  _meshRenderer: {fileID: 5685304638777396043}
