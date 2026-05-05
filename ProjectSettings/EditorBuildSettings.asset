@@ -5,22 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/StartScene/StartScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/DotsAndOopComparison/DOTS/DotsSample.unity
     guid: 142079a4e68b34946bd498143c1f5fa8
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/DotsAndOopComparison/OOP/OopSample.unity
     guid: 47273588b0a446a48a21ad919f125944
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/ClassesAndStructsComparison/ClassesAndStructsComparison.unity
     guid: f5dea270d0c645a44a2ed3c260b40b13
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Jobs/Jobs.unity
     guid: 681a7417cdaa7974caf594e588539c50
   - enabled: 1
     path: Assets/_Project/TestFishNet/TestFishNet.unity
     guid: ae68bd908866f534c8cf61c4099c3f37
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

@@ -111,7 +111,7 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 4181845520934995351}
   _networkObjectCache: {fileID: 0}
-  CubePrefab: {fileID: 3055579054330512139, guid: fb9bea40698424147b4c52cc03c11833,
+  MySpawnableObject: {fileID: 3472460985835752937, guid: f9a761e4a0c08794cb9703438de0c8e9,
     type: 3}
   MySyncMaterialColor: {fileID: 3981528659371472606}
   SpawnRate: 0.5
@@ -132,6 +132,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -153,9 +158,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3981528659371472606
 MonoBehaviour:

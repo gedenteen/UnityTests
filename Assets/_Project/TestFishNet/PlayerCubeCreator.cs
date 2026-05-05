@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerCubeCreator : NetworkBehaviour
 {
-    public NetworkObject CubePrefab;
+    public NetworkObject MySpawnableObject;
     public SyncMaterialColor MySyncMaterialColor;
     public float SpawnRate = 0.5f;
 
@@ -34,8 +34,8 @@ public class PlayerCubeCreator : NetworkBehaviour
     [ServerRpc]
     private void SpawnCube()
     {
-        NetworkObject obj = Instantiate(CubePrefab, transform.position, Quaternion.identity);
-        obj.GetComponent<SyncMaterialColor>().Color.Value = Random.ColorHSV();
-        Spawn(obj); // NetworkBehaviour shortcut for ServerManager.Spawn(obj);
+        NetworkObject networkObject = Instantiate(MySpawnableObject, transform.position, Quaternion.identity);
+        networkObject.GetComponent<SyncMaterialColor>().Color.Value = Random.ColorHSV();
+        Spawn(networkObject); // NetworkBehaviour shortcut for ServerManager.Spawn(obj);
     }
 }
