@@ -9,7 +9,6 @@ using UnityEngine;
 public class SceneLoader : MonoBehaviour
 {
     public bool SceneStack = true;
-    public Collider MyCollider;
 
     private float _timer;
     private bool _isLoading;
@@ -32,13 +31,6 @@ public class SceneLoader : MonoBehaviour
             InstanceFinder.SceneManager.OnLoadEnd -= SceneManager_OnLoadEnd;
             InstanceFinder.SceneManager.OnClientLoadedStartScenes -= SceneManagerOnOnClientLoadedStartScenes;
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        NetworkObject networkObject = other.GetComponent<NetworkObject>();
-        if (networkObject != null)
-            LoadScene(networkObject);
     }
 
     private void LoadScene(NetworkConnection networkConnection)
