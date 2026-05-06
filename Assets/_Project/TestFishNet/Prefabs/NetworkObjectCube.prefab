@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3520810552199830480
+--- !u!1 &4339580164869529880
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5975223975443551613}
-  - component: {fileID: 9101298169857578420}
-  - component: {fileID: 5264373931008326227}
-  - component: {fileID: 5089666301924763228}
-  - component: {fileID: 3472460985835752937}
-  - component: {fileID: 3626892678272871740}
-  - component: {fileID: 803985336087796526}
+  - component: {fileID: 4301328652932188155}
+  - component: {fileID: 8176101546609722527}
+  - component: {fileID: 5685304638777396043}
+  - component: {fileID: 8253696600378059232}
+  - component: {fileID: 3055579054330512139}
+  - component: {fileID: -4844360529638803636}
+  - component: {fileID: 1614252837930889544}
+  - component: {fileID: 6630642570966994216}
   m_Layer: 0
-  m_Name: NetworkObjectSphere
+  m_Name: NetworkObjectCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5975223975443551613
+--- !u!4 &4301328652932188155
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520810552199830480}
+  m_GameObject: {fileID: 4339580164869529880}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9101298169857578420
+--- !u!33 &8176101546609722527
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520810552199830480}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5264373931008326227
+  m_GameObject: {fileID: 4339580164869529880}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &5685304638777396043
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520810552199830480}
+  m_GameObject: {fileID: 4339580164869529880}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -70,7 +71,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 11875cd6977c77f4aba082e806414664, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,13 +95,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5089666301924763228
-SphereCollider:
+--- !u!65 &8253696600378059232
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520810552199830480}
+  m_GameObject: {fileID: 4339580164869529880}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -113,20 +114,20 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3472460985835752937
+--- !u!114 &3055579054330512139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520810552199830480}
+  m_GameObject: {fileID: 4339580164869529880}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: FishNet.Runtime::FishNet.Object.NetworkObject
+  m_EditorClassIdentifier: 
   _localLevelOfDetailCalculationType: 0
   _useLevelOfDetail: 0
   _useRootLevelOfDetail: 1
@@ -145,14 +146,14 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 3
+  <PrefabId>k__BackingField: 6
   <SpawnableCollectionId>k__BackingField: 0
-  <AssetPathHash>k__BackingField: 5977429603610854994
+  <AssetPathHash>k__BackingField: 17920790477460527299
   SceneId: 0
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
-    Scale: {x: 0.75, y: 0.75, z: 0.75}
+    Scale: {x: 0.5, y: 0.5, z: 0.5}
     IsValid: 1
   <IsNested>k__BackingField: 0
   WasActiveDuringEdit: 0
@@ -161,8 +162,7 @@ MonoBehaviour:
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
-  - {fileID: 3626892678272871740}
-  - {fileID: 803985336087796526}
+  - {fileID: -4844360529638803636}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -173,36 +173,51 @@ MonoBehaviour:
   _initializeOrder: 0
   _preventDespawnOnDisconnect: 0
   _defaultDespawnType: 0
-  _initializedTimestamp: -8584236243829458753
---- !u!114 &3626892678272871740
+  _initializedTimestamp: -8584236318707574293
+--- !u!114 &-4844360529638803636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520810552199830480}
+  m_GameObject: {fileID: 4339580164869529880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caedc78b69b5a6b4c942692be3c817cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a6a39c46bf52104ba8efe3100bce3f7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SyncMaterialColor
+  m_EditorClassIdentifier: 
   _componentIndexCache: 0
-  _addedNetworkObject: {fileID: 3472460985835752937}
-  _networkObjectCache: {fileID: 3472460985835752937}
-  _meshRenderer: {fileID: 5264373931008326227}
---- !u!114 &803985336087796526
+  _addedNetworkObject: {fileID: 3055579054330512139}
+  _networkObjectCache: {fileID: 3055579054330512139}
+--- !u!114 &1614252837930889544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520810552199830480}
+  m_GameObject: {fileID: 4339580164869529880}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8576aa0415e83b948a2da3ceeb1df721, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DespawnAfterTime
-  _componentIndexCache: 1
-  _addedNetworkObject: {fileID: 3472460985835752937}
-  _networkObjectCache: {fileID: 3472460985835752937}
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 3055579054330512139}
+  _networkObjectCache: {fileID: 0}
   SecondsBeforeDespawn: 3
+--- !u!114 &6630642570966994216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339580164869529880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caedc78b69b5a6b4c942692be3c817cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 3055579054330512139}
+  _networkObjectCache: {fileID: 0}
+  _meshRenderer: {fileID: 5685304638777396043}
