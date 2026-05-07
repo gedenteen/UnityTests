@@ -13,7 +13,7 @@ public class PlayerCubeCreator : NetworkBehaviour
 
     private void Start()
     {
-        MySyncMaterialColor.Color.Value = Random.ColorHSV();
+        MySyncMaterialColor.Color.Value = Random.ColorHSV(0.5f, 1f, 0.5f, 1f, 0.5f, 1f);
     }
 
     private void Update()
@@ -35,7 +35,7 @@ public class PlayerCubeCreator : NetworkBehaviour
     private void SpawnCube()
     {
         NetworkObject networkObject = Instantiate(MySpawnableObject, transform.position, Quaternion.identity);
-        networkObject.GetComponent<SyncMaterialColor>().Color.Value = Random.ColorHSV();
+        networkObject.GetComponent<SyncMaterialColor>().Color.Value = MySyncMaterialColor.Color.Value;
         Spawn(networkObject); // NetworkBehaviour shortcut for ServerManager.Spawn(obj);
     }
 }

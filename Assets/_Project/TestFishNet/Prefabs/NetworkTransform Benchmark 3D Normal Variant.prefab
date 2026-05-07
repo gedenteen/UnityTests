@@ -16,13 +16,33 @@ PrefabInstance:
     - target: {fileID: 4512293259955182956, guid: fe2b65b02f0484b41aa8cfa9fbbb0e1d,
         type: 3}
       propertyPath: _initializedTimestamp
-      value: -8584236246823854044
+      value: -8584234614066931613
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512293259955182956, guid: fe2b65b02f0484b41aa8cfa9fbbb0e1d,
+        type: 3}
+      propertyPath: <PrefabId>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512293259955182956, guid: fe2b65b02f0484b41aa8cfa9fbbb0e1d,
+        type: 3}
+      propertyPath: NetworkBehaviours.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4512293259955182956, guid: fe2b65b02f0484b41aa8cfa9fbbb0e1d,
         type: 3}
       propertyPath: <AssetPathHash>k__BackingField
       value: 3936890879852074931
       objectReference: {fileID: 0}
+    - target: {fileID: 4512293259955182956, guid: fe2b65b02f0484b41aa8cfa9fbbb0e1d,
+        type: 3}
+      propertyPath: 'NetworkBehaviours.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4705911446618708627}
+    - target: {fileID: 4512293259955182956, guid: fe2b65b02f0484b41aa8cfa9fbbb0e1d,
+        type: 3}
+      propertyPath: 'NetworkBehaviours.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3981528659371472606}
     - target: {fileID: 4512293259955182957, guid: fe2b65b02f0484b41aa8cfa9fbbb0e1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -117,13 +137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b12248be2b3d948b0f1d051f3436dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 4181845520934995351}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 4181845520934995351}
   MySpawnableObject: {fileID: 3472460985835752937, guid: f9a761e4a0c08794cb9703438de0c8e9,
     type: 3}
   MySyncMaterialColor: {fileID: 3981528659371472606}
-  SpawnRate: 0.5
+  SpawnRate: 0.3
 --- !u!23 &1174221264309471480
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -185,9 +205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caedc78b69b5a6b4c942692be3c817cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 3
   _addedNetworkObject: {fileID: 4181845520934995351}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 4181845520934995351}
   _meshRenderer: {fileID: 6249337267768383704}
 --- !u!65 &1801518451265120568
 BoxCollider:
