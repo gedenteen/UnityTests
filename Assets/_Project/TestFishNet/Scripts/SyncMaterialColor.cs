@@ -3,9 +3,7 @@ using FishNet.Object;
 using FishNet.Object.Synchronizing;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
-using Random = System.Random;
 
-[RequireComponent(typeof(MeshRenderer))]
 public class SyncMaterialColor : NetworkBehaviour
 {
     [SerializeField] private MeshRenderer _meshRenderer;
