@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
     public bool SceneStack = true;
 
     private const string _sceneName = "TestFishNet_World1";
-    private const int _worldInstanceCount = 2;
+    private const int _worldInstanceCount = 2; // кол-во инстансов одной сцены на сервере
 
     // FishNet отличает stacked-инстансы одной сцены по Unity Scene.handle.
     // Здесь храним handles двух серверных инстансов, между которыми распределяем игроков.
@@ -73,6 +73,7 @@ public class SceneLoader : MonoBehaviour
         LoadConnectionIntoAssignedInstance(connection);
     }
 
+    // "Прогревка" инстансов сцены: разрешаем стакать инстансы, загружаем (без ожидания) инстансы
     private void PrewarmWorldInstances()
     {
         if (_isPrewarming || AreWorldInstancesReady())
@@ -83,19 +84,21 @@ public class SceneLoader : MonoBehaviour
         for (int i = _stackedSceneHandles.Count; i < _worldInstanceCount; i++)
         {
             // Handle 0 означает "найти сцену по имени"; AllowStacking заставит FishNet создать новый инстанс.
-            SceneLookupData lookup = new SceneLookupData(0, _sceneName);
-            SceneLoadData sld = new SceneLoadData(lookup);
+            SceneLookupData lookupData = new SceneLookupData(0, _sceneName);
+            SceneLoadData loadData = new SceneLoadData(lookupData);
 
-            sld.Options.AllowStacking = true;
-            sld.Options.AutomaticallyUnload = false;
-            sld.ReplaceScenes = ReplaceOption.None;
+            loadData.Options.AllowStacking = true;
+            loadData.Options.AutomaticallyUnload = false;
+            loadData.ReplaceScenes = ReplaceOption.None;
 
             // Загрузка без списка connections создаёт сцену только на сервере.
             // Клиенты позже будут загружены в конкретный handle через LoadConnectionScenes(connection, sld).
-            InstanceFinder.SceneManager.LoadConnectionScenes(sld);
+            InstanceFinder.SceneManager.LoadConnectionScenes(loadData);
         }
     }
 
+    // Метод вызывается при загрузке сцены Фишнетом. Запоминаем handle сцены. Если все инстансы сцены
+    // готовы, то подключаем игроков.
     private void SceneManager_OnLoadEnd(SceneLoadEndEventArgs args)
     {
         if (!args.QueueData.AsServer)
@@ -128,6 +131,7 @@ public class SceneLoader : MonoBehaviour
         FlushPendingConnections();
     }
 
+    // Метод для "подвешенных" подключений. Если такие есть, то подключаем игроков на нужные сцены.
     private void FlushPendingConnections()
     {
         if (_pendingConnections.Count == 0)
@@ -145,6 +149,7 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+    // Метод для подключения игрока к нанзначенной ему сцене
     private void LoadConnectionIntoAssignedInstance(NetworkConnection connection)
     {
         if (!_assignedHandleByConnection.TryGetValue(connection, out int sceneHandle))
@@ -163,31 +168,20 @@ public class SceneLoader : MonoBehaviour
         LoadScene(connection, sceneHandle);
     }
 
+    // Метод для загрузки префаба игрока на сцену (которая определяется по sceneHandle)
     private void LoadScene(NetworkConnection connection, int sceneHandle)
     {
         // Если sceneHandle != 0, FishNet загрузит именно этот stacked-инстанс, а не создаст/выберет другой.
-        SceneLookupData lookup = new SceneLookupData(sceneHandle, _sceneName);
-        SceneLoadData sld = new SceneLoadData(lookup);
+        SceneLookupData lookupData = new SceneLookupData(sceneHandle, _sceneName);
+        SceneLoadData loadData = new SceneLoadData(lookupData);
 
-        sld.Options.AllowStacking = true;
+        loadData.Options.AllowStacking = true;
         // Переносим все NetworkObject игрока в ту же сцену, чтобы SceneCondition видела их только внутри инстанса.
-        sld.MovedNetworkObjects = connection.Objects.ToArray();
+        loadData.MovedNetworkObjects = connection.Objects.ToArray();
         // Клиент оставляет только назначенный мир; стартовые/предыдущие сцены заменяются.
-        sld.ReplaceScenes = ReplaceOption.All;
+        loadData.ReplaceScenes = ReplaceOption.All;
 
-        InstanceFinder.SceneManager.LoadConnectionScenes(connection, sld);
-    }
-
-    private void LoadScene(NetworkObject networkObject, int sceneHandle)
-    {
-        SceneLookupData lookup = new SceneLookupData(sceneHandle, _sceneName);
-        SceneLoadData sld = new SceneLoadData(lookup);
-
-        sld.Options.AllowStacking = true;
-        sld.MovedNetworkObjects = new[] { networkObject };
-        sld.ReplaceScenes = ReplaceOption.All;
-
-        InstanceFinder.SceneManager.LoadConnectionScenes(networkObject.Owner, sld);
+        InstanceFinder.SceneManager.LoadConnectionScenes(connection, loadData);
     }
 
     private bool AreWorldInstancesReady()
