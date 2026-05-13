@@ -204,7 +204,7 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 3055579054330512139}
   _networkObjectCache: {fileID: 0}
-  SecondsBeforeDespawn: 3
+  SecondsBeforeDespawn: 2
 --- !u!114 &6630642570966994216
 MonoBehaviour:
   m_ObjectHideFlags: 0
